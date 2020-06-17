@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gestion de librairie</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>assets/tabBookIcon.png</normaloff>assets/tabBookIcon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="Tabs">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>771</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #080998</string>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::West</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="Tab_people">
+     <attribute name="icon">
+      <iconset>
+       <normaloff>assets/tabEmpIcon.png</normaloff>assets/tabEmpIcon.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string>Emprunteurs</string>
+     </attribute>
+     <widget class="QTableWidget" name="empTable">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>721</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="addEmpButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>12</y>
+        <width>241</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:grey</string>
+      </property>
+      <property name="text">
+       <string>Ajouter emprunteur</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>assets/tabEmpIcon.png</normaloff>assets/tabEmpIcon.png</iconset>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="empSearchArea">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>10</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:white</string>
+      </property>
+      <property name="placeholderText">
+       <string>Rechercher un emprunteur</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Tab_livre">
+     <attribute name="icon">
+      <iconset>
+       <normaloff>assets/tabBookIcon.png</normaloff>assets/tabBookIcon.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string>Livres</string>
+     </attribute>
+     <widget class="QPushButton" name="addBookButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>241</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: grey</string>
+      </property>
+      <property name="text">
+       <string>Ajouter livre</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>assets/tabBookIcon.png</normaloff>assets/tabBookIcon.png</iconset>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="bookTable">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>721</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="bookSearchArea">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>10</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:white</string>
+      </property>
+      <property name="placeholderText">
+       <string>Rechercher un livre</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="empBookButton">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>10</y>
+        <width>241</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: grey</string>
+      </property>
+      <property name="text">
+       <string>Emprunter ce livre</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>assets/tabBookIcon.png</normaloff>assets/tabBookIcon.png</iconset>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
