@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/assets">
+        <file>assets/ensa-khouribga-1.png</file>
+        <file>assets/tabBookIcon.png</file>
+        <file>assets/tabEmpIcon.png</file>
+    </qresource>
+</RCC>

@@ -18,14 +18,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     addbookdialog.cpp \
     addempdialog.cpp \
+    bookdao.cpp \
+    bookmodel.cpp \
+    databaseconnector.cpp \
     empbookdialog.cpp \
+    empdao.cpp \
+    empmodel.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     addbookdialog.h \
     addempdialog.h \
+    bookdao.h \
+    bookmodel.h \
+    databaseconnector.h \
     empbookdialog.h \
+    empdao.h \
+    empmodel.h \
     mainwindow.h
 
 FORMS += \
@@ -41,3 +51,6 @@ TRANSLATIONS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Rs.qrc
