@@ -1,12 +1,11 @@
-#ifndef EMPDAO_H
-#define EMPDAO_H
+#ifndef COPYDAO_H
+#define COPYDAO_H
 
-#include "DAO.h"
 
-class EmpDAO: public DAO
+class CopyDAO
 {
 public:
-    EmpDAO();
+    CopyDAO();
     void getAll();
     void getById();
     void insert();
@@ -14,4 +13,4 @@ public:
     void remove();
 };
 
-#endif // EMPDAO_H
+#endif // COPYDAO_H

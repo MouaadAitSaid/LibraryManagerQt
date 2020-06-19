@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -15,6 +17,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
 private slots:
     void addBookSlot();
     void addEmpSlot();
@@ -23,5 +26,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     void connectButtons();
+    void setDBConnectionStatus();
 };
 #endif // MAINWINDOW_H

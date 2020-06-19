@@ -3,6 +3,9 @@
 #include "addbookdialog.h"
 #include "addempdialog.h"
 #include "empbookdialog.h"
+#include "databaseconnector.h"
+
+
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -11,12 +14,26 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->connectButtons();
+    this->setDBConnectionStatus();
 }
 
 void MainWindow::connectButtons(){
     connect(ui->addBookButton,SIGNAL(clicked()),SLOT(addBookSlot()));
     connect(ui->addEmpButton,SIGNAL(clicked()),SLOT(addEmpSlot()));
     connect(ui->empBookButton,SIGNAL(clicked()),SLOT(empBookSlot()));
+}
+
+void MainWindow::setDBConnectionStatus(){
+    DatabaseConnector::connect();
+    bool connectedDB = DatabaseConnector::testConn();
+    if (connectedDB){
+        ui->connTestLabel->setText("    Base de données connecté avec succes :D .   ");
+        ui->connTestLabel->setStyleSheet("QLabel { background-color : green; color: white; }");
+    }else{
+        ui->connTestLabel->setText("    Base de données non connecté :( .   ");
+        ui->connTestLabel->setStyleSheet("QLabel { background-color : red; color: white; }");
+    }
+    ui->connTestLabel->setAlignment(Qt::AlignCenter);
 }
 
 void MainWindow::addBookSlot()
@@ -47,4 +64,5 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 

@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,24 +18,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     addbookdialog.cpp \
     addempdialog.cpp \
+    book.cpp \
     bookdao.cpp \
-    bookmodel.cpp \
-    databaseconnector.cpp \
+    copy.cpp \
+    copydao.cpp \
+    emp.cpp \
     empbookdialog.cpp \
     empdao.cpp \
-    empmodel.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    DAO.h \
     addbookdialog.h \
     addempdialog.h \
+    book.h \
     bookdao.h \
-    bookmodel.h \
+    copy.h \
+    copydao.h \
     databaseconnector.h \
+    emp.h \
     empbookdialog.h \
     empdao.h \
-    empmodel.h \
     mainwindow.h
 
 FORMS += \
