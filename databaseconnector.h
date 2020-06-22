@@ -1,4 +1,10 @@
-#ifndM/l;k,g cdxwsq<
+#ifndef DATABASECONNECTOR_H
+#define DATABASECONNECTOR_H
+
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QWidget>
+#include <QtDebug>
 
 class DatabaseConnector
 {
@@ -14,8 +20,9 @@ public:
         QSqlDatabase lmDatabase = QSqlDatabase::database();
         return lmDatabase.isOpen();
     };
-    static bool executeQuery(const QString& query, const QString& message){
-        return true;
+    static bool executeQuery(const std::string query){
+        QSqlQuery  queryHandler;
+        return queryHandler.exec(QString::fromStdString(query));
     };
     
 };

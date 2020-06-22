@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>789</width>
+    <height>598</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,7 +37,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Tab_people">
      <attribute name="icon">
@@ -48,6 +48,9 @@
       <string>Emprunteurs</string>
      </attribute>
      <widget class="QTableWidget" name="empTable">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -59,13 +62,16 @@
       <property name="styleSheet">
        <string notr="true">background-color: white</string>
       </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
      </widget>
      <widget class="QPushButton" name="addEmpButton">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>12</y>
-        <width>241</width>
+        <y>10</y>
+        <width>151</width>
         <height>31</height>
        </rect>
       </property>
@@ -80,20 +86,63 @@
         <normaloff>assets/tabEmpIcon.png</normaloff>assets/tabEmpIcon.png</iconset>
       </property>
      </widget>
-     <widget class="QTextEdit" name="empSearchArea">
+     <widget class="QLineEdit" name="empSearchArea">
       <property name="geometry">
        <rect>
-        <x>470</x>
+        <x>502</x>
         <y>10</y>
-        <width>261</width>
+        <width>231</width>
         <height>31</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color:white</string>
+       <string notr="true">background-color: white</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
       <property name="placeholderText">
-       <string>Rechercher un emprunteur</string>
+       <string>Rechercher </string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="editEmpButton">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>10</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:grey</string>
+      </property>
+      <property name="text">
+       <string>Modifier emprunteur</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>assets/tabEmpIcon.png</normaloff>assets/tabEmpIcon.png</iconset>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="delEmpButton">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>10</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:grey</string>
+      </property>
+      <property name="text">
+       <string>Supprimer emprunteur</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>assets/tabEmpIcon.png</normaloff>assets/tabEmpIcon.png</iconset>
       </property>
      </widget>
     </widget>
@@ -259,7 +308,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>789</width>
      <height>21</height>
     </rect>
    </property>

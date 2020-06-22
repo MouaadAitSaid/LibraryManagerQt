@@ -2,14 +2,14 @@
 #define BOOK_H
 
 #include <QWidget>
-#include <QList>
-#include "emp.h"
+
 
 
 
 class Book
 {
 public:
+    Book();
 
     int getIdBook() const;
     void setIdBook(int value);
@@ -28,6 +28,7 @@ public:
 
     QList<QString *> getTags() const;
     void setTags(const QList<QString *> &value);
+
 
 private:
     int idBook;

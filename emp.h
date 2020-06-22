@@ -2,6 +2,8 @@
 #define EMP_H
 
 #include <QWidget>
+#include <QList>
+#include "copy.h"
 
 
 class Emp
@@ -9,31 +11,39 @@ class Emp
 
 
 public:
+    Emp();
     int getIdEmp() const;
     void setIdEmp(int value);
 
-    QString &getFName() const;
-    void setFName(const QString &value);
+    QList<Copy *> getCopies() const;
+    void setCopies(const QList<Copy *> &value);
 
-    QString &getLName() const;
-    void setLName(const QString &value);
+    std::string getFName() const;
+    void setFName(const std::string &value);
 
-    QString &getBirthDate() const;
-    void setBirthDate(const QString &value);
+    std::string getLName() const;
+    void setLName(const std::string &value);
 
-    QString &getAdress() const;
-    void setAdress(const QString &value);
+    std::string getBirthDate() const;
+    void setBirthDate(const std::string &value);
 
-    QString &getProfession() const;
-    void setProfession(const QString &value);
+    std::string getAdress() const;
+    void setAdress(const std::string &value);
+
+    std::string getProfession() const;
+    void setProfession(const std::string &value);
+
+    std::string toString();
+    bool validate();
 
 private:
     int idEmp;
-    QString& fName;
-    QString& lName;
-    QString& birthDate;
-    QString& adress;
-    QString& profession;
+    std::string fName;
+    std::string lName;
+    std::string birthDate;
+    std::string adress;
+    std::string profession;
+    QList<Copy *> copies;
 
 };
 

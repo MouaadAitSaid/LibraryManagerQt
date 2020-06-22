@@ -1,17 +1,18 @@
 #ifndef EMPDAO_H
 #define EMPDAO_H
 
-#include "DAO.h"
+#include "emp.h"
 
-class EmpDAO: public DAO
+
+class EmpDAO
 {
 public:
     EmpDAO();
-    void getAll();
+    static QList<Emp *> getAll(std::string search);
     void getById();
-    void insert();
-    void update();
-    void remove();
+    static bool insert(const Emp &newEmp);
+    static bool update(const Emp &newEmp);
+    static bool remove(const int id);
 };
 
 #endif // EMPDAO_H

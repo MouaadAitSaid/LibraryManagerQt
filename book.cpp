@@ -30,15 +30,9 @@ void Book::setEntryDate(const QString &value)
     entryDate = value;
 }
 
-QString &Book::getAuthor() const
-{
-    return author;
-}
 
-void Book::setAuthor(const QString &value)
-{
-    author = value;
-}
+
+
 
 QString &Book::getResume() const
 {
@@ -50,25 +44,8 @@ void Book::setResume(const QString &value)
     resume = value;
 }
 
-QString &Book::getDomaine() const
-{
-    return domaine;
-}
 
-void Book::setDomaine(const QString &value)
-{
-    domaine = value;
-}
 
-Emp Book::getEmp() const
-{
-    return emp;
-}
-
-void Book::setEmp(const Emp &value)
-{
-    emp = value;
-}
 
 QList<QString *> Book::getAuthors() const
 {

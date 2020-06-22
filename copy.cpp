@@ -31,12 +31,4 @@ void Copy::setBuyingDate(const QString &value)
     buyingDate = value;
 }
 
-Book Copy::getBook() const
-{
-    return book;
-}
 
-void Copy::setBook(const Book &value)
-{
-    book = value;
-}

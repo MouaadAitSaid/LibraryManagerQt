@@ -29,7 +29,6 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
-    DAO.h \
     addbookdialog.h \
     addempdialog.h \
     book.h \
