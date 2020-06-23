@@ -9,7 +9,13 @@
 #include <QMessageBox>
 
 
-
+void MainWindow::empBookSlot()
+{
+    EmpBookDialog *book;
+    book = new EmpBookDialog(this);
+    book->setModal(true);
+    book->show();
+}
 
 
 
@@ -19,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    /********************************************************/
     empTable = new QTableWidget(0,6,ui->Tab_people);
     empTable->setGeometry(QRect(10, 50, 721, 421));
     empTable->setObjectName(QString::fromUtf8("empTable"));
@@ -27,9 +34,23 @@ MainWindow::MainWindow(QWidget *parent)
     empTable->verticalHeader()->setVisible(false);
     empTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     empTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+    /************************************************************/
+    bookTable = new QTableWidget(0,6,ui->Tab_livre);
+    bookTable->setObjectName(QString::fromUtf8("bookTable"));
+    bookTable->setGeometry(QRect(10, 50, 721, 421));
+    bookTable->setStyleSheet(QString::fromUtf8("background-color: white"));
+    bookTable->horizontalHeader()->setStretchLastSection(true);
+    bookTable->verticalHeader()->setVisible(false);
+    bookTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    bookTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+    /*****************************************************************/
+
     this->connectButtons();
     this->setDBConnectionStatus();
     this->initiateEmpTable("");
+    this->initiateBookTable("");
 }
 
 void MainWindow::connectButtons(){
@@ -38,8 +59,7 @@ void MainWindow::connectButtons(){
     connect(ui->empBookButton,SIGNAL(clicked()),SLOT(empBookSlot()));
     connect(empTable->selectionModel()
             , SIGNAL(currentRowChanged(QModelIndex,QModelIndex))
-            , SLOT(tableRowChenged(QModelIndex)));
-}
+            , SLOT(tableEmpRowChenged(QModelIndex)));}
 
 void MainWindow::setDBConnectionStatus(){
     DatabaseConnector::connect();
@@ -54,14 +74,17 @@ void MainWindow::setDBConnectionStatus(){
     ui->connTestLabel->setAlignment(Qt::AlignCenter);
 }
 
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+/********************* EMP LOGIC  **********************************/
 void MainWindow::fillEmpTable(QList<Emp *> emprunteurs)
 {
-    std::string log = "Heeeeeeeeeeere"+ std::to_string(emprunteurs.size());
+    std::string log = "HeeeeeeeeeeereEmp"+ std::to_string(emprunteurs.size());
     qDebug() << QString::fromStdString(log);
     empTable->setRowCount(0);
-    std::string logh = "Ha hya texecutat hna"+ std::to_string(emprunteurs.size());
-
-    qDebug() << QString::fromStdString(logh);
     empTable->setHorizontalHeaderItem(0, new QTableWidgetItem("ID"));
     empTable->setHorizontalHeaderItem(1, new QTableWidgetItem("Prénom"));
     empTable->setHorizontalHeaderItem(2, new QTableWidgetItem("Nom"));
@@ -72,7 +95,7 @@ void MainWindow::fillEmpTable(QList<Emp *> emprunteurs)
 
     for( int row = 0; row < emprunteurs.size(); row++ )
     {
-        qDebug() << QString::number(row);
+
         empTable->insertRow(row);
         empTable->setItem(row,0,new QTableWidgetItem(QString::number(emprunteurs[row]->getIdEmp())));
         empTable->setItem(row,1,new QTableWidgetItem(QString::fromStdString(emprunteurs[row]->getFName())));
@@ -91,14 +114,6 @@ void MainWindow::initiateEmpTable(std::string searchText)
     this->fillEmpTable(initialEmps);
 }
 
-void MainWindow::addBookSlot()
-{
-    AddBookDialog *book;
-    book = new AddBookDialog(this);
-    book->setModal(true);
-    book->exec();
-}
-
 void MainWindow::addEmpSlot()
 {
     AddEmpDialog *empDialog;
@@ -111,29 +126,12 @@ void MainWindow::addEmpSlot()
     }
 }
 
-void MainWindow::empBookSlot()
-{
-    EmpBookDialog *book;
-    book = new EmpBookDialog(this);
-    book->setModal(true);
-    book->show();
-}
-
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
-
-
-
 void MainWindow::on_empSearchArea_returnPressed()
 {
     this->initiateEmpTable(ui->empSearchArea->text().toStdString());
 }
 
-
-
-void MainWindow::tableRowChenged(const QModelIndex &index)
+void MainWindow::tableEmpRowChenged(const QModelIndex &index)
 {
     qDebug() << QString::fromStdString(std::to_string(index.row())+"HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
     if(index.row()!=-1){
@@ -187,5 +185,55 @@ void MainWindow::on_delEmpButton_clicked()
     else{
         QMessageBox::warning(this,"Attention","Veuillez selectionner un emprunteur d'abord.");
     }
+
+}
+/********************** END EMP LOGIC *************************/
+
+
+
+
+
+/********************* Book Logic *****************************/
+
+
+void MainWindow::addBookSlot()
+{
+    AddBookDialog *bookDialog;
+    bookDialog = new AddBookDialog(this);
+    bookDialog->setModal(true);
+    int result = bookDialog->exec();
+    if(result==QDialog::Accepted)
+    {
+        this->initiateBookTable("");
+    }
+}
+
+void MainWindow::fillBookTable(QList<Book *> books)
+{
+
+}
+
+void MainWindow::initiateBookTable(std::string searchText)
+{
+
+}
+
+void MainWindow::on_bookSearchArea_returnPressed()
+{
+
+}
+
+void MainWindow::tableBookRowChenged(const QModelIndex &index)
+{
+
+}
+
+void MainWindow::on_editBookButton_clicked()
+{
+
+}
+
+void MainWindow::on_delBookButton_clicked()
+{
 
 }

@@ -3,28 +3,20 @@
 
 #include <QWidget>
 #include "book.h"
+#include "emp.h"
 
 class Copy
 {
 
 public:
-    int getIdCopy() const;
-    void setIdCopy(int value);
-
-    QString &getRang() const;
-    void setRang(const QString &value);
-
-    QString &getBuyingDate() const;
-    void setBuyingDate(const QString &value);
-
-    Book getBook() const;
-    void setBook(const Book &value);
+   Copy();
 
 private:
     int idCopy;
-    QString& rang;
-    QString& buyingDate;
+    std::string rang;
+    std::string buyingDate;
     Book book;
+    Emp emp;
 };
 
 #endif // COPY_H

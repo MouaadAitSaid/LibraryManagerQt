@@ -11,32 +11,40 @@ class Book
 public:
     Book();
 
+
     int getIdBook() const;
     void setIdBook(int value);
 
-    QString &getTitle() const;
-    void setTitle(const QString &value);
+    std::string getTitle() const;
+    void setTitle(const std::string &value);
 
-    QString &getEntryDate() const;
-    void setEntryDate(const QString &value);
+    std::string getEntryDate() const;
+    void setEntryDate(const std::string &value);
 
-    QString &getResume() const;
-    void setResume(const QString &value);
+    QStringList getAuthors() const;
+    void setAuthors(const QStringList &value);
 
-    QList<QString *> getAuthors() const;
-    void setAuthors(const QList<QString *> &value);
+    std::string getResume() const;
+    void setResume(const std::string &value);
 
-    QList<QString *> getTags() const;
-    void setTags(const QList<QString *> &value);
+    QStringList getTags() const;
+    void setTags(const QStringList &value);
 
+    bool validate();
+
+    int getNumberCopies() const;
+    void setNumberCopies(int value);
+
+    std::string toString();
 
 private:
     int idBook;
-    QString& title;
-    QString& entryDate;
-    QList<QString *> authors;
-    QString& resume;
-    QList<QString *> tags;
+    std::string  title;
+    std::string  entryDate;
+    QStringList authors;
+    std::string  resume;
+    QStringList tags;
+    int numberCopies;
 };
 
 #endif // BOOK_H

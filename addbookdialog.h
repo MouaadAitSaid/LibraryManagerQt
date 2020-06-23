@@ -2,6 +2,8 @@
 #define ADDBOOKDIALOG_H
 
 #include <QDialog>
+#include "book.h"
+#include "bookdao.h"
 
 namespace Ui {
 class AddBookDialog;
@@ -14,6 +16,11 @@ class AddBookDialog : public QDialog
 public:
     explicit AddBookDialog(QWidget *parent = nullptr);
     ~AddBookDialog();
+
+private slots:
+    void on_anuuler_clicked();
+
+    void on_Okb_clicked();
 
 private:
     Ui::AddBookDialog *ui;

@@ -3,8 +3,8 @@
 
 #include <QMainWindow>
 #include <QList>
-#include "emp.h"
 #include "addempdialog.h"
+#include "addbookdialog.h"
 #include <QTableWidget>
 
 
@@ -21,31 +21,57 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+    /**** EmpLogic  **********************************************************************/
+public :
     QTableWidget *empTable;
     Emp *selectedEmp = nullptr;
-
-
-
+private:
+    void fillEmpTable(QList<Emp *> emprunteurs);
 private slots:
-    void addBookSlot();
     void addEmpSlot();
-    void empBookSlot();
+
     void initiateEmpTable(std::string searchText);
 
     void on_empSearchArea_returnPressed();
 
-    void tableRowChenged(const QModelIndex &index);
+    void tableEmpRowChenged(const QModelIndex &index);
 
     void on_editEmpButton_clicked();
 
     void on_delEmpButton_clicked();
 
+    /**** end  EmpLogic  **********************************************************************/
+    /**** BookLogic  **********************************************************************/
+public:
+    QTableWidget *bookTable;
+    Book *selectedBook = nullptr;
+private:
+    void fillBookTable(QList<Book *> books);
+private slots:
+    void addBookSlot();
+    void initiateBookTable(std::string searchText);
+
+    void on_bookSearchArea_returnPressed();
+
+    void tableBookRowChenged(const QModelIndex &index);
+
+    void on_editBookButton_clicked();
+
+    void on_delBookButton_clicked();
+    /**** End BookLogic  **********************************************************************/
+
+
+
+
 private:
     Ui::MainWindow *ui;
     void connectButtons();
     void setDBConnectionStatus();
-    void fillEmpTable(QList<Emp *> emprunteurs);
+
+
+
+private slots:
+    void empBookSlot();
 
 };
 #endif // MAINWINDOW_H

@@ -1,4 +1,11 @@
 #include "book.h"
+#include <QtDebug>
+
+
+Book::Book()
+{
+
+}
 
 int Book::getIdBook() const
 {
@@ -10,59 +17,77 @@ void Book::setIdBook(int value)
     idBook = value;
 }
 
-QString &Book::getTitle() const
+std::string Book::getTitle() const
 {
     return title;
 }
 
-void Book::setTitle(const QString &value)
+void Book::setTitle(const std::string &value)
 {
     title = value;
 }
 
-QString &Book::getEntryDate() const
+std::string Book::getEntryDate() const
 {
     return entryDate;
 }
 
-void Book::setEntryDate(const QString &value)
+void Book::setEntryDate(const std::string &value)
 {
     entryDate = value;
 }
 
-
-
-
-
-QString &Book::getResume() const
-{
-    return resume;
-}
-
-void Book::setResume(const QString &value)
-{
-    resume = value;
-}
-
-
-
-
-QList<QString *> Book::getAuthors() const
+QStringList Book::getAuthors() const
 {
     return authors;
 }
 
-void Book::setAuthors(const QList<QString *> &value)
+void Book::setAuthors(const QStringList &value)
 {
     authors = value;
 }
 
-QList<QString *> Book::getTags() const
+std::string Book::getResume() const
+{
+    return resume;
+}
+
+void Book::setResume(const std::string &value)
+{
+    resume = value;
+}
+
+QStringList Book::getTags() const
 {
     return tags;
 }
 
-void Book::setTags(const QList<QString *> &value)
+void Book::setTags(const QStringList &value)
 {
     tags = value;
+}
+
+bool Book::validate()
+{
+   qDebug() << !getTags().empty() <<  !getTitle().empty() << !getResume().empty()<< !getAuthors().empty() <<!getEntryDate().empty();
+    return !getTags().empty() &&
+            !getTitle().empty() &&
+            !getResume().empty() &&
+            !getAuthors().empty()  &&
+            !getEntryDate().empty();
+}
+
+int Book::getNumberCopies() const
+{
+    return numberCopies;
+}
+
+void Book::setNumberCopies(int value)
+{
+    numberCopies = value;
+}
+
+std::string Book::toString(){
+    return "Titres: " + this->getTitle()
+            + "\copies: " + std::to_string(this->getNumberCopies());
 }
